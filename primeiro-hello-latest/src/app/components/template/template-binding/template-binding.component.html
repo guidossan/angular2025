@@ -17,3 +17,17 @@
 <hr/>
 <p [class.background-red]="true">{{name}}</p>
 <p [style.text-decoration]="isTextDecoration">{{age}}</p>
+
+<!--
+  <element
+    (TargetEventName)='TemplateStatement'
+  ></element>
+-->
+<button (click)="sum()">+</button>
+<button (click)="sub()">-</button>
+<input (keydown.shift.t)="onKeyDown($event)">
+<div
+  style="background-color: red; width: 300px; height: 300px; margin-top: 10px"
+
+  (mousemove)="onMouseEvent($event)"
+></div>
