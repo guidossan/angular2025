@@ -31,3 +31,7 @@
 
   (mousemove)="onMouseEvent($event)"
 ></div>
+<hr/>
+<!-- editar do formulario, é reativo então reflete na variavel(name)-->
+<input [(ngModel)]="name"/>
+{{name}}
