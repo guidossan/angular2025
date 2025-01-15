@@ -12,5 +12,5 @@ export class TemplateBindingComponent {
   public age =21;
   public isDisabled = false;
   public srcValue ="https://i.pinimg.com/736x/91/af/65/91af653ad3b9fdf58ab75999f17387b8.jpg"
-
+  public isTextDecoration = this.age >=21 ? 'underline' : 'none';
 }
