@@ -35,3 +35,9 @@
 <!-- editar do formulario, é reativo então reflete na variavel(name)-->
 <input [(ngModel)]="name"/>
 {{name}}
+<hr/>
+<h3>Diretivas de atributos</h3>
+<div [ngClass]="{'background-red': age> 20, 'background-blue': age <20}">Classe condicionais</div>
+<div [ngStyle]="{
+  color: age>20 ? 'green' : 'red'
+}">Estilos dinamicos</div>
