@@ -1,6 +1,7 @@
 # angular2025
 Aplicação do curso angular pela udemy
-
+https://vidafullstack.com.br/instrucoes-para-o-curso/
+https://github.com/troquatte/curso-angular-latest
 
 # Componentes
 Cria um componente ng g component (nome do componenete)
