@@ -12,7 +12,7 @@
 <button (click)="isTrue = true">Add True</button>
 @defer (when loadingData$ | async){
   <app-new-component/>
-} @placeholder {
+} @placeholder (minimum 5s){
   <p>Mostrar antes de carregar algo.</p>
 } @loading {
   <p>Carregando o componente...</p>
