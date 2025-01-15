@@ -9,7 +9,8 @@
 
 
 <h2>Deferrable Views</h2>
-@defer (on timer(5s)){
+<button (click)="isTrue = true">Add True</button>
+@defer (when loadingData$ | async){
   <app-new-component/>
 } @placeholder {
   <p>Mostrar antes de carregar algo.</p>
