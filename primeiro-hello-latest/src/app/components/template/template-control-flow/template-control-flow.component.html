@@ -1,5 +1,6 @@
 <h2>Control flow</h2>
 <h3>IF</h3>
+<!--
 
 @if (loadingData$ | async; as data){
   <ul>
@@ -14,3 +15,25 @@
     <li>{{item}}</li>
   }
 </ul>
+-->
+@for(
+  item of itens; track item.name;
+  let i = $index;
+  let c = $count;
+  let f = $first;
+  let l = $last;
+  let e = $even;
+  let o = $odd;
+) {
+  <p>{{ item.name }}</p>
+  <!--
+    <p>index no array - {{i}}</p>
+    <p>quantos tem dentro - {{c}}</p>
+    <p>priemiro do array? - {{f}}</p>
+    <p>ultimo do array? - {{l}}</p>
+    <p>par? - {{e}}</p>
+    <p>impar? - {{o}}</p>
+    -->
+}
+<input #name type="text"/>
+<button (click)="addNewName(name.value)">Add name</button>
