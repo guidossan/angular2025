@@ -1,0 +1,25 @@
+/*
+    :host ele é um seletor especial que se refere ao componente em que está sendo usado
+
+
+*/
+h2 {
+    background-color: red;
+}
+:host {
+    h2{
+        background-color: purple;
+    }
+}
+
+
+/*
+    :host-context() é um seletor que permite aplicar estilos com base no contexto
+    aplica estilos com base nas condições do componente pai
+*/
+:host-context(.theme-dark){
+    h2{
+        background-color: black;
+        color: red
+    }
+}

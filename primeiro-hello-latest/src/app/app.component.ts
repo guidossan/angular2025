@@ -10,7 +10,10 @@ import { NewComponent } from './components/new-component/new-component.component
   template: `
     <router-outlet/> 
     <h1>Hello</h1>
-    <app-new-component />
+    <div class="theme-dark">
+
+      <app-new-component />
+    </div>
     
   `,
 })
