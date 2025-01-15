@@ -16,10 +16,10 @@ h2 {
 /*
     :host-context() é um seletor que permite aplicar estilos com base no contexto
     aplica estilos com base nas condições do componente pai
-*/
-:host-context(.theme-dark){
-    h2{
-        background-color: black;
-        color: red
+    :host-context(.theme-dark){
+        h2{
+            background-color: black;
+            color: red
+        }
     }
-}
+*/
