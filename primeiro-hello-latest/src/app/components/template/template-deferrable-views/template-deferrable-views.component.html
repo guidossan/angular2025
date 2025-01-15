@@ -1,0 +1,20 @@
+<!--
+  on - especifica ima condição de acionador usando um acionador da lista.
+  (idle, timer, viewport(quando o scroll chegar), interaction(interação com alguma variavel),
+  hover(passar o mouse), immediate, prefetch(carrega em pedaços, só acontece quando uma interação))
+
+  when - especifica ima condição imperativa como uma expressão que retorna um booleano.
+  quando true o espaço é trocado pelo conteúdo carregado lentamente
+-->
+
+
+<h2>Deferrable Views</h2>
+@defer (on timer(5s)){
+  <app-new-component/>
+} @placeholder {
+  <p>Mostrar antes de carregar algo.</p>
+} @loading {
+  <p>Carregando o componente...</p>
+} @error {
+  <p>Carregamento falhou </p>
+}

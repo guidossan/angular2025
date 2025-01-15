@@ -20,3 +20,12 @@ o angular detecte qual item mudou para só atualizar aquele e não precisar apag
 
 @for(item of loadingData$ | async; track item.id){}
 o track item.id está identificando
+
+# Deferrable Views
+Quando quiser adiar carregamento de um componente
+on - especifica ima condição de acionador usando um acionador da lista.
+(idle, timer, viewport(quando o scroll chegar), interaction(interação com alguma variavel),
+hover(passar o mouse), immediate, prefetch(carrega em pedaços, só acontece quando uma interação))
+
+when - especifica ima condição imperativa como uma expressão que retorna um booleano.
+quando true o espaço é trocado pelo conteúdo carregado lentamente
