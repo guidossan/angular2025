@@ -29,3 +29,6 @@ hover(passar o mouse), immediate, prefetch(carrega em pedaços, só acontece qua
 
 when - especifica ima condição imperativa como uma expressão que retorna um booleano.
 quando true o espaço é trocado pelo conteúdo carregado lentamente
+
+# Signal
+Armazena valor que pode sofrer alterações;tipos primitivos, simples ou extruturas complexas

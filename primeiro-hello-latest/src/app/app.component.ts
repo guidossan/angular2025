@@ -6,6 +6,7 @@ import { TemplateBindingComponent } from './components/template/template-binding
 import { TemplateVariablesComponent } from "./components/template/template-variables/template-variables.component";
 import { TemplateControlFlowComponent } from "./components/template/template-control-flow/template-control-flow.component";
 import { TemplateDeferrableViewsComponent } from './components/template/template-deferrable-views/template-deferrable-views.component';
+import { SignalsComponent } from './components/signals/signals.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { TemplateDeferrableViewsComponent } from './components/template/template
     TemplateBindingComponent,
     TemplateVariablesComponent,
     TemplateControlFlowComponent,
-    TemplateDeferrableViewsComponent
+    TemplateDeferrableViewsComponent,
+    SignalsComponent
   ],
   template: `
     <router-outlet/>
@@ -28,8 +30,8 @@ import { TemplateDeferrableViewsComponent } from './components/template/template
       <!--<app-template-binding/>-->
       <!--<app-template-variables/>-->
       <!--<app-template-control-flow/>-->
-      
-      <app-template-deferrable-views/>
+      <!--<app-template-deferrable-views/>-->
+      <app-signals/>
     </div>
 
   `,
