@@ -33,3 +33,6 @@ quando true o espaço é trocado pelo conteúdo carregado lentamente
 # Signal
 Armazena valor que pode sofrer alterações;tipos primitivos, simples ou extruturas complexas
 Permite que os componentes se comuniquem entre si de forma assíncrona
+
+# Pipes
+Usado para formatar dados antes de mostra-los 
