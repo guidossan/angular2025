@@ -1,38 +1,59 @@
-# angular2025
-Aplicação do curso angular pela udemy
-https://vidafullstack.com.br/instrucoes-para-o-curso/
-https://github.com/troquatte/curso-angular-latest
+# PrimeiroHelloLatest
 
-# Componentes
-Cria um componente ng g component (nome do componenete)
-vai criar uma pasta com o html, css, typescript e suas especs
-pode ser criado dentro de uma pasta, colocando a pasta/nome componente
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
-# Estilos CSS
-Hierarquia para estilos do componente
-- Primeiro do html dentro do componente
-- Segundo do css do componente
-- Terceiro do global
+## Development server
 
-# Loop for para itens
-utilizar o track em um loop fará com que, quando houver uma atualização em determinado item
-o angular detecte qual item mudou para só atualizar aquele e não precisar apagar todos e subir novamente, casos assim quando o item é um objeto que tem um identificador por exemplo:
+To start a local development server, run:
 
-@for(item of loadingData$ | async; track item.id){}
-o track item.id está identificando
+```bash
+ng serve
+```
 
-# Deferrable Views
-Quando quiser adiar carregamento de um componente
-on - especifica ima condição de acionador usando um acionador da lista.
-(idle, timer, viewport(quando o scroll chegar), interaction(interação com alguma variavel),
-hover(passar o mouse), immediate, prefetch(carrega em pedaços, só acontece quando uma interação))
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-when - especifica ima condição imperativa como uma expressão que retorna um booleano.
-quando true o espaço é trocado pelo conteúdo carregado lentamente
+## Code scaffolding
 
-# Signal
-Armazena valor que pode sofrer alterações;tipos primitivos, simples ou extruturas complexas
-Permite que os componentes se comuniquem entre si de forma assíncrona
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-# Pipes
-Usado para formatar dados antes de mostra-los 
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
