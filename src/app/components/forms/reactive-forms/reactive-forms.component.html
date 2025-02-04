@@ -2,9 +2,19 @@
 <form [formGroup]="profileForm">
   <label>
     Nome:
-    <input type="text" formControlName="name"/>
-    <p>Value name: {{ profileForm.value.name }}</p>
+    <input type="text" formControlName="name" required/>
+    <p>value:     {{ profileForm.value | json }}</p>
+    <p>Valid:     {{ profileForm.valid | json }}</p>
+    <p>disrty:    {{ profileForm.dirty | json }}</p>
+    <p>touched:   {{ profileForm.touched | json }}</p>
   </label>
+
+  <hr/>
+  <h3 >[formGroup]="profileForm"</h3>
+  <p>value: {{ profileForm.value.name }}</p>
+  <hr/>
+  <h3 >[formControlName]="name"</h3>
+  <hr/>
 
   <div formGroupName="myStacks">
     <label>
@@ -37,5 +47,5 @@
       </label>
     }
   </div>
-
+  <button [disabled]="!profileForm.valid">Submit</button>
 </form>
