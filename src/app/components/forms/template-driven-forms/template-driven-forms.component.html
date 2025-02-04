@@ -9,6 +9,24 @@
 
 <h2>Template Reactive forms</h2>
 <form>
+  <select
+    name="sekectComidas"
+    #comidas="ngModel"
+    ngModel
+  >
+  <option value="">Selecione um alimento</option>
+    @for(item of listComidas();track item){
+      <option [ngValue]="item">{{ item.comida }}</option>
+    }
+  </select>
+  <hr/>
+  {{comidas.value.comida}}
+  {{comidas.value.preco}}
+  {{comidas.dirty | json}}
+  {{comidas.touched | json}}
+  <hr/>
+
+
   <label>
     Nome:
     <input

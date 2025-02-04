@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 
@@ -11,5 +11,18 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './template-driven-forms.component.scss'
 })
 export class TemplateDrivenFormsComponent {
-
+  public listComidas = signal<Array<{comida:string, preco:string}>>([
+    {
+      comida: 'X-salada', preco:'R$10,00'
+    },
+    {
+      comida: 'X-bacon', preco:'R$15,00'
+    },
+    {
+      comida: 'X-double bacon', preco:'R$20,00'
+    },
+    {
+      comida: 'X-egg', preco:'R$10,00'
+    },
+  ]);
 }
