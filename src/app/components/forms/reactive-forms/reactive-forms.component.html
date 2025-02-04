@@ -2,7 +2,7 @@
 <form [formGroup]="profileForm">
   <label>
     Nome:
-    <input type="text" formControlName="name" required/>
+    <input type="text" formControlName="name"/>
     <p>value:     {{ profileForm.value | json }}</p>
     <p>Valid:     {{ profileForm.valid | json }}</p>
     <p>disrty:    {{ profileForm.dirty | json }}</p>

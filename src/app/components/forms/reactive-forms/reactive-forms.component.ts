@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -14,7 +14,9 @@ export class ReactiveFormsComponent {
   #fb = inject(FormBuilder);
 
   public profileForm = this.#fb.group({
-    name: [''],
+    //validators serve para a segurança maior passar para o TS
+    //Mais de um validator colocar em array
+    name: ['', [Validators.required, Validators.email]],
     myStacks: this.#fb.group({
       front: ['Angular'], // Alterado para usar FormBuilder corretamente
       back: ['Java'] // Alterado para usar FormBuilder corretamente
