@@ -8,7 +8,7 @@
 
 
 <h2>Template Reactive forms</h2>
-<form>
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
   <select
     name="sekectComidas"
     #comidas="ngModel"
@@ -20,12 +20,13 @@
     }
   </select>
   <hr/>
-  {{comidas.value.comida}}
-  {{comidas.value.preco}}
+  {{comidas.value?.comida}}
+  {{comidas.value?.preco}}
   {{comidas.dirty | json}}
   {{comidas.touched | json}}
   <hr/>
 
+  <button [disabled]="!form.valid">Send</button>
 
   <label>
     Nome:
@@ -95,3 +96,6 @@
   <p>touched: {{techAngular.touched}}</p>
   <hr/>
 </form>
+
+{{form.valid}}
+{{form.value | json}}
