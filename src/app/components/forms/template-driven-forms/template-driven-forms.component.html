@@ -58,4 +58,22 @@
   <!--ja foi tocado-->
   <p>touched: {{sexo.touched}}</p>
   <hr/>
+  <label>
+    Angular:
+    <input
+    type="checkbox"
+    value="Angular"
+    name="checkboxAngular"
+    #techAngular="ngModel"
+    [ngModel]="techAngular.value"
+    required
+    />
+  </label>
+  <hr/>
+  <p>value: {{techAngular.value}}</p>
+  <!--ja foi usado-->
+  <p>dirty: {{techAngular.dirty}}</p>
+  <!--ja foi tocado-->
+  <p>touched: {{techAngular.touched}}</p>
+  <hr/>
 </form>
