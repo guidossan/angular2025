@@ -1,1 +1,30 @@
+<!--
+  Útim para adicionar um formulário simples a um
+  aplicativo, como um formulário de inscrição em uma lista de e-mail
+
+  Mais fácil de add porém não é escalonável ( cresce em comlexidade sem precisar
+  de muitas mudanças ) tão bem quanto os reativos
+-->
+
+
 <h2>Template Reactive forms</h2>
+<form>
+  <label>
+    Nome:
+    <input
+      type="text"
+      name="inputName"
+      #name="ngModel"
+      [ngModel]="name.value"
+      required
+      />
+  </label>
+
+  <hr/>
+  <p>value: {{name.value}}</p>
+  <!--ja foi usado-->
+  <p>dirty: {{name.dirty}}</p>
+  <!--ja foi tocado-->
+  <p>touched: {{name.touched}}</p>
+  <hr/>
+</form>
