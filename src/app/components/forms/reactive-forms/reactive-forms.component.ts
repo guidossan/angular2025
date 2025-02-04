@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -14,7 +14,10 @@ export class ReactiveFormsComponent {
     myStacks: new FormGroup({
       front: new FormControl('Angular'),
       back: new FormControl('Java')
-    })
+    }),
+    myFavoriteFoods: new FormArray([
+      new FormControl('X-tudo'),
+    ])
   })
 
 
@@ -23,5 +26,12 @@ export class ReactiveFormsComponent {
       name: 'Guilherme',
     })
     //this.name.setValue('Guilherme')
+  }
+
+  public addFavoriteFoods(newFood: string){
+    const myFavoriteFoods = this.profileForm.get('myFavoriteFoods') as FormArray;
+    const addNewFood = new FormControl(newFood);
+
+    myFavoriteFoods.push(addNewFood);
   }
 }

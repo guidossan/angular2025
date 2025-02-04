@@ -17,15 +17,7 @@ import { TemplateDrivenFormsComponent } from "./components/forms/template-driven
   imports: [
     CommonModule,
     RouterOutlet,
-    NewComponent,
-    TemplateBindingComponent,
-    TemplateVariablesComponent,
-    TemplateControlFlowComponent,
-    TemplateDeferrableViewsComponent,
-    SignalsComponent,
-    AngularPipesComponent,
-    ReactiveFormsComponent,
-    TemplateDrivenFormsComponent
+    ReactiveFormsComponent
 ],
   template: `
     <router-outlet/>

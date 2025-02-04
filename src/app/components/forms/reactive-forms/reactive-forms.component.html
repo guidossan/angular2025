@@ -6,9 +6,9 @@
     <p>Value name: {{ profileForm.value.name }}</p>
   </label>
 
-  <div formControlName="myStacks">
+  <div formGroupName="myStacks">
     <label>
-      Front:
+      Back:
       <input type="text" formControlName="front"/>
       <p>Value: {{ profileForm.value.myStacks?.front }}</p>
     </label>
@@ -20,4 +20,22 @@
   </div>
 
   <button type="button" (click)="update()">Update name</button>
+
+
+  <hr/>
+  <label>
+    new Food
+    <input #newFood type="text"/>
+  </label>
+  <button type="button" (click)="addFavoriteFoods(newFood.value)">Add</button>
+  <hr/>
+  <div formArrayName="myFavoriteFoods">
+    @for(food of profileForm.value.myFavoriteFoods; track i; let i = $index){
+      <label>
+        {{ food }}:
+        <input type="text" [formControlName]="i"/>
+      </label>
+    }
+  </div>
+
 </form>
