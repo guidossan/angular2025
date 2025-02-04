@@ -51,4 +51,10 @@ export class ReactiveFormsComponent {
 
     myFavoriteFoods.push(addNewFood);
   }
+
+  public submit(){
+    if(this.profileForm.valid){
+      console.log(this.profileForm.value);
+    }
+  }
 }
