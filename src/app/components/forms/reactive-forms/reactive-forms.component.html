@@ -5,6 +5,7 @@
     <input type="text" formControlName="name"/>
     <p>value:     {{ profileForm.value | json }}</p>
     <p>Valid:     {{ profileForm.valid | json }}</p>
+    <p>Errors:     {{ profileForm.get('name')?.errors | json }}</p>
     <p>disrty:    {{ profileForm.dirty | json }}</p>
     <p>touched:   {{ profileForm.touched | json }}</p>
   </label>
