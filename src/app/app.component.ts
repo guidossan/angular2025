@@ -39,8 +39,7 @@ import { TemplateDrivenFormsComponent } from "./components/forms/template-driven
       <!--<app-template-deferrable-views/>-->
       <!--<app-signals/>-->
       <!--<app-angular-pipes/>-->
-
-      <app-template-driven-forms/>
+      <!--<app-template-driven-forms/>-->
       <app-reactive-forms/>
 
     </div>
