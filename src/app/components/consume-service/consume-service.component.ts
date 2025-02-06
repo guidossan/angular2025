@@ -17,7 +17,8 @@ export class ConsumeServiceComponent implements OnInit{
   #apiService = inject(ApiServiceService);
 
 
-  public gatListTask = this.#apiService.gatListTask;
+  public gatListTask = this.#apiService.getListTask;
+  public gatIdTask = this.#apiService.getIdTask;
   //forma com signal
   //public getTask$ = toSignal(this.#apiService.httpListTasks$());
   //getTask passa a ser um observable e pode ser resgatado direto com async
@@ -25,6 +26,7 @@ export class ConsumeServiceComponent implements OnInit{
 
   ngOnInit(): void {
     this.#apiService.httpListTasks$().subscribe();
+    this.#apiService.httpTaskId$('iOZ14alU0sTdxb0ffkn2').subscribe();
   //  this.getTask$.subscribe({
   //    next: (next) => console.log(next),
   //    error: (error) => console.log(error),

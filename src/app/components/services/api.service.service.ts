@@ -18,13 +18,24 @@ export class ApiServiceService {
   #url = signal(environment.apiTask);
 
   #setListTask = signal<ITask[] | null>(null);
-  public gatListTask =this.#setListTask.asReadonly();
-
-
+  get getListTask(){
+    return this.#setListTask.asReadonly();
+  }
   public httpListTasks$(): Observable<Array<ITask>>{
     return this.#http.get<ITask[]>(this.#url()).pipe(
       shareReplay(),
       tap((res) => this.#setListTask.set(res))
+    );
+  }
+
+  #setIdTask = signal<ITask | null>(null);
+  get getIdTask(){
+    return this.#setIdTask.asReadonly();
+  }
+  public httpTaskId$(id:string): Observable<ITask>{
+    return this.#http.get<ITask>(`${this.#url()}${id}`).pipe(
+      shareReplay(),
+      tap((res) => this.#setIdTask.set(res))
     );
   }
 }

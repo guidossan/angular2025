@@ -10,5 +10,9 @@
 } @else {
   <li>Loading...</li>
 }
-
-
+<h3>Get Item Id</h3>
+@if(gatIdTask(); as data){
+  <p>Get por Id:
+    {{ data.id }} - {{ data.title }}
+  </p>
+}
