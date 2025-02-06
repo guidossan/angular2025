@@ -14,6 +14,9 @@ import { ContentComponent } from "@components/content/content.component";
 import { HostElementsComponent } from "@components/host-elements/host-elements.component";
 import { LifeCycleComponentComponent } from "@components/life-cycle-component/life-cycle-component.component";
 
+import { environment } from 'environments/environment';
+
+
 
 @Component({
   selector: 'app-root',
@@ -53,7 +56,8 @@ import { LifeCycleComponentComponent } from "@components/life-cycle-component/li
         </app-content>
       -->
       <!--<app-host-elements/>-->
-      @if(boolean){
+      <!--
+        @if(boolean){
 
         <app-life-cycle-component [inputNumber]="number()">
           <p #text>Text</p>
@@ -61,19 +65,15 @@ import { LifeCycleComponentComponent } from "@components/life-cycle-component/li
       }
       <button (click)="boolean = !boolean">Destroy</button>
     </div>
+    -->
+
 
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    setInterval(() => {
-      this.number.update((oldValue)=>{
-        return oldValue + 1;
-      })
-    }, 1000);
+export class AppComponent {
+  constructor(){
+    console.log(environment.env);
   }
-  public number = signal(1);
-  public boolean =true;
 
 }
