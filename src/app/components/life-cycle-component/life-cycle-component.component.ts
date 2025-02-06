@@ -18,8 +18,9 @@ export class LifeCycleComponentComponent implements OnChanges, OnInit, DoCheck, 
   constructor(
     private fb: FormBuilder
   ){}
-  //apos visualização e inicializado totalmente
+  
   @ViewChild('content') public content!: ElementRef;
+  //apos visualização e inicializado totalmente
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit');
     console.log(this.content.nativeElement.innerText);
