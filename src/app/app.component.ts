@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NewComponent } from './components/new-component/new-component.component';
@@ -23,7 +23,8 @@ import { LifeCycleComponentComponent } from "./components/life-cycle-component/l
     RouterOutlet,
     ReactiveFormsComponent,
     ContentComponent,
-    HostElementsComponent
+    HostElementsComponent,
+    LifeCycleComponentComponent
 ],
   template: `
     <router-outlet/>
@@ -52,11 +53,19 @@ import { LifeCycleComponentComponent } from "./components/life-cycle-component/l
         </app-content>
       -->
       <!--<app-host-elements/>-->
-      
+      <app-life-cycle-component [number]="number"/>
     </div>
 
   `,
 })
-export class AppComponent {
-  title = 'primeiro-hello-latest';
+export class AppComponent implements OnInit{
+  public number = 1;
+
+  ngOnInit(): void {
+    setInterval(()=>{
+      this.number++
+
+    }, 1000);
+  }
+
 }
