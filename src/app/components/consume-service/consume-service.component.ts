@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { NewComponent } from '@components/new-component/new-component.component';
 import { ApiServiceService } from '@components/services/api.service.service';
 
@@ -14,9 +14,20 @@ import { ApiServiceService } from '@components/services/api.service.service';
 export class ConsumeServiceComponent implements OnInit{
 
   #apiService = inject(ApiServiceService);
+  public getTask = signal<null | Array<{
+    id:string;
+    title:string;
+  }>>(null);
 
   ngOnInit(): void {
-    console.log(this.#apiService.name());
+    this.#apiService.httpListTasks$().subscribe({
+      next: (next) => {
+        console.log(next)
+        this.getTask.set(next)
+      },
+      error: (error) => console.log(error),
+      complete: () => console.log('Complete'),
+    })
   }
 
 }
