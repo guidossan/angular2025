@@ -6,7 +6,7 @@ import { ApiServiceService } from '@components/services/api.service.service';
 @Component({
   selector: 'app-consume-service',
   standalone:true,
-  imports: [CommonModule, NewComponent],
+  imports: [CommonModule],
   templateUrl: './consume-service.component.html',
   styleUrl: './consume-service.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -19,8 +19,10 @@ export class ConsumeServiceComponent implements OnInit{
     title:string;
   }>>(null);
 
+  public getTask$ = this.#apiService.httpListTasks$();
+
   ngOnInit(): void {
-    this.#apiService.httpListTasks$().subscribe({
+    this.getTask$.subscribe({
       next: (next) => {
         console.log(next)
         this.getTask.set(next)
