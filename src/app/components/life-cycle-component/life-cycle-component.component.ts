@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, DoCheck, Input, OnChanges, OnInit, signal, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, signal, SimpleChanges, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './life-cycle-component.component.html',
   styleUrl: './life-cycle-component.component.scss'
 })
-export class LifeCycleComponentComponent implements OnChanges, OnInit, DoCheck{
+export class LifeCycleComponentComponent implements OnChanges, OnInit, DoCheck, AfterViewInit{
 
   @Input() public number=0;
   public myText = signal('Gui');
@@ -18,6 +18,13 @@ export class LifeCycleComponentComponent implements OnChanges, OnInit, DoCheck{
   constructor(
     private fb: FormBuilder
   ){}
+  //apos visualização e inicializado totalmente
+  @ViewChild('content') public content!: ElementRef;
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    console.log(this.content.nativeElement.innerText);
+  }
+
   ngOnInit(): void {
     console.log('ngOnInit');
   }
