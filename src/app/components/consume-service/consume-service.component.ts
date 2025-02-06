@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { NewComponent } from '@components/new-component/new-component.component';
 import { ApiServiceService } from '@components/services/api.service.service';
 
@@ -14,22 +15,21 @@ import { ApiServiceService } from '@components/services/api.service.service';
 export class ConsumeServiceComponent implements OnInit{
 
   #apiService = inject(ApiServiceService);
-  public getTask = signal<null | Array<{
-    id:string;
-    title:string;
-  }>>(null);
+
+
+  public gatListTask = this.#apiService.gatListTask;
+  //forma com signal
+  //public getTask$ = toSignal(this.#apiService.httpListTasks$());
   //getTask passa a ser um observable e pode ser resgatado direto com async
-  public getTask$ = this.#apiService.httpListTasks$();
+  //public getTask$ = this.#apiService.httpListTasks$();
 
   ngOnInit(): void {
-    this.getTask$.subscribe({
-      next: (next) => {
-        console.log(next)
-        this.getTask.set(next)
-      },
-      error: (error) => console.log(error),
-      complete: () => console.log('Complete'),
-    })
+    this.#apiService.httpListTasks$().subscribe();
+  //  this.getTask$.subscribe({
+  //    next: (next) => console.log(next),
+  //    error: (error) => console.log(error),
+  //    complete: () => console.log('Complete'),
+  //  })
   }
 
 }

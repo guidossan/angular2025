@@ -1,11 +1,14 @@
 <p>Services</p>
-<ul>
-
-  @for(item of getTask$ | async; track item){
-    <li>{{item.id}} - {{item.title}}</li>
-  } @empty {
-    <li>Não existe dados</li>
-  }
-</ul>
+@if(gatListTask(); as data){
+  <ul>
+    @for(item of data; track item){
+      <li>{{item.id}} - {{item.title}}</li>
+    } @empty {
+      <li>Não existe dados</li>
+    }
+  </ul>
+} @else {
+  <li>Loading...</li>
+}
 
 
