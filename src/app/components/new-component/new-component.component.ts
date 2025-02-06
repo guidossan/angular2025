@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ApiServiceService } from '@components/services/api.service.service';
 
 @Component({
   selector: 'app-new-component',
@@ -8,6 +9,12 @@ import { Component } from '@angular/core';
   templateUrl: './new-component.component.html',
   styleUrl: './new-component.component.scss'
 })
-export class NewComponent {
+export class NewComponent implements OnInit{
   public name = "New component";
+  #apiService = inject(ApiServiceService);
+
+  ngOnInit(): void {
+    console.log(this.#apiService.name());
+  }
+  
 }

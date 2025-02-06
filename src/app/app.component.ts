@@ -15,6 +15,7 @@ import { HostElementsComponent } from "@components/host-elements/host-elements.c
 import { LifeCycleComponentComponent } from "@components/life-cycle-component/life-cycle-component.component";
 
 import { environment } from 'environments/environment';
+import { ConsumeServiceComponent } from "./components/consume-service/consume-service.component";
 
 
 
@@ -27,7 +28,8 @@ import { environment } from 'environments/environment';
     ReactiveFormsComponent,
     ContentComponent,
     HostElementsComponent,
-    LifeCycleComponentComponent
+    LifeCycleComponentComponent,
+    ConsumeServiceComponent
 ],
   template: `
     <router-outlet/>
@@ -66,7 +68,7 @@ import { environment } from 'environments/environment';
       <button (click)="boolean = !boolean">Destroy</button>
     </div>
     -->
-
+    <app-consume-service/>
 
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
