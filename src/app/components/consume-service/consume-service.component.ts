@@ -18,7 +18,7 @@ export class ConsumeServiceComponent implements OnInit{
     id:string;
     title:string;
   }>>(null);
-
+  //getTask passa a ser um observable e pode ser resgatado direto com async
   public getTask$ = this.#apiService.httpListTasks$();
 
   ngOnInit(): void {
