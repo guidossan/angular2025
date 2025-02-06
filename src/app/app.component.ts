@@ -53,19 +53,19 @@ import { LifeCycleComponentComponent } from "./components/life-cycle-component/l
         </app-content>
       -->
       <!--<app-host-elements/>-->
-      <app-life-cycle-component [number]="number"/>
+      @if(boolean){
+
+        <app-life-cycle-component [number]="number">
+          <p #text>Text</p>
+        </app-life-cycle-component>
+      }
+      <button (click)="boolean = !boolean">Destroy</button>
     </div>
 
   `,
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   public number = 1;
-
-  ngOnInit(): void {
-    setInterval(()=>{
-      this.number++
-
-    }, 1000);
-  }
+  public boolean =true;
 
 }
