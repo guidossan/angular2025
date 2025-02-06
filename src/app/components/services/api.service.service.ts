@@ -46,7 +46,18 @@ export class ApiServiceService {
   public httpTaskCreate$(title:string): Observable<ITask>{
     return this.#http.post<ITask>(this.#url(), { title }).pipe(
       shareReplay(),
-      tap((res) => this.#setIdTask.set(res))
+      tap((res) => this.#setTaskCreate.set(res))
+    );
+  }
+
+  #setTaskUpdate = signal<ITask | null>(null);
+  get getTaskUpdate(){
+    return this.#setTaskUpdate.asReadonly();
+  }
+  public httpTaskUpdate$(id:string,title:string): Observable<ITask>{
+    return this.#http.patch<ITask>(`${this.#url()}${id}`, { title }).pipe(
+      shareReplay(),
+      tap((res) => this.#setTaskUpdate.set(res))
     );
   }
 

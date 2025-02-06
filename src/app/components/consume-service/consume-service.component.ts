@@ -43,5 +43,11 @@ export class ConsumeServiceComponent implements OnInit{
       next: (next)=> console.log(next)
     });
   }
+  public httpTaskUpdate(id: string, title:string){
+    return this.#apiService
+    .httpTaskUpdate$(id,title)
+    .pipe(concatMap(()=>this.#apiService.httpListTasks$()))
+    .subscribe({next: (next)=> console.log(next)});
+  }
 
 }
