@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NewComponent } from './components/new-component/new-component.component';
@@ -55,7 +55,7 @@ import { LifeCycleComponentComponent } from "./components/life-cycle-component/l
       <!--<app-host-elements/>-->
       @if(boolean){
 
-        <app-life-cycle-component [number]="number">
+        <app-life-cycle-component [inputNumber]="number()">
           <p #text>Text</p>
         </app-life-cycle-component>
       }
@@ -63,9 +63,17 @@ import { LifeCycleComponentComponent } from "./components/life-cycle-component/l
     </div>
 
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent{
-  public number = 1;
+export class AppComponent implements OnInit{
+  ngOnInit(): void {
+    setInterval(() => {
+      this.number.update((oldValue)=>{
+        return oldValue + 1;
+      })
+    }, 1000);
+  }
+  public number = signal(1);
   public boolean =true;
 
 }
