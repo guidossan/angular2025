@@ -12,6 +12,8 @@ import { ReactiveFormsComponent } from './components/forms/reactive-forms/reacti
 import { TemplateDrivenFormsComponent } from "./components/forms/template-driven-forms/template-driven-forms.component";
 import { ContentComponent } from "./components/content/content.component";
 import { HostElementsComponent } from "./components/host-elements/host-elements.component";
+import { LifeCycleComponentComponent } from "./components/life-cycle-component/life-cycle-component.component";
+
 
 @Component({
   selector: 'app-root',
@@ -49,7 +51,8 @@ import { HostElementsComponent } from "./components/host-elements/host-elements.
           </footer>
         </app-content>
       -->
-      <app-host-elements/>
+      <!--<app-host-elements/>-->
+      
     </div>
 
   `,
