@@ -22,6 +22,9 @@ export class ApiServiceService {
     return this.#setListTask.asReadonly();
   }
   public httpListTasks$(): Observable<Array<ITask>>{
+    //restaura todos para null
+    this.#setListTask.set(null)
+    //faz a request
     return this.#http.get<ITask[]>(this.#url()).pipe(
       shareReplay(),
       tap((res) => this.#setListTask.set(res))
