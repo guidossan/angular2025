@@ -1,11 +1,11 @@
 <p>Services</p>
 <ul>
 
-  @for(item of getTask(); track item){
+  @for(item of getTask$ | async; track item){
     <li>{{item.id}} - {{item.title}}</li>
   } @empty {
     <li>Não existe dados</li>
   }
 </ul>
 
-{{ getTask$ | async | json}}
+
