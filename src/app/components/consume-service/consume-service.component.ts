@@ -19,7 +19,9 @@ export class ConsumeServiceComponent implements OnInit{
 
 
   public gatListTask = this.#apiService.getListTask;
-  public gatIdTask = this.#apiService.getIdTask;
+  public getIdTask = this.#apiService.getIdTask;
+  public getIdError = this.#apiService.getIdError;
+  public getTaskCreateError = this.#apiService.getTaskCreateError;
   //forma com signal
   //public getTask$ = toSignal(this.#apiService.httpListTasks$());
   //getTask passa a ser um observable e pode ser resgatado direto com async

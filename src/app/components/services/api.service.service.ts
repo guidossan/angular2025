@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, signal, inject } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Observable, shareReplay, tap } from 'rxjs';
+import { catchError, Observable, shareReplay, tap, throwError } from 'rxjs';
 
 interface ITask{
   id:string;
@@ -35,10 +35,22 @@ export class ApiServiceService {
   get getIdTask(){
     return this.#setIdTask.asReadonly();
   }
+  #setIdError = signal<ITask | null>(null);
+  get getIdError(){
+    return this.#setIdError.asReadonly();
+  }
   public httpTaskId$(id:string): Observable<ITask>{
+    //restaura todos para null
+    this.#setListTask.set(null)
+    this.#setIdError.set(null)
+    //faz a request
     return this.#http.get<ITask>(`${this.#url()}${id}`).pipe(
       shareReplay(),
-      tap((res) => this.#setIdTask.set(res))
+      tap((res) => this.#setIdTask.set(res)),
+      catchError((error:HttpErrorResponse)=> {
+        this.#setIdError.set(error.error.message);
+        return throwError(()=> error);
+      })
     );
   }
 
@@ -46,10 +58,18 @@ export class ApiServiceService {
   get getTaskCreatek(){
     return this.#setTaskCreate.asReadonly();
   }
+  #setTaskCreateError = signal<ITask | null>(null);
+  get getTaskCreateError(){
+    return this.#setTaskCreateError.asReadonly();
+  }
   public httpTaskCreate$(title:string): Observable<ITask>{
+    this.#setTaskCreateError.set(null)
     return this.#http.post<ITask>(this.#url(), { title }).pipe(
       shareReplay(),
-      tap((res) => this.#setTaskCreate.set(res))
+      catchError((error:HttpErrorResponse)=> {
+        this.#setTaskCreateError.set(error.error.message);
+        return throwError(()=> error);
+      })
     );
   }
 
@@ -60,7 +80,10 @@ export class ApiServiceService {
   public httpTaskUpdate$(id:string,title:string): Observable<ITask>{
     return this.#http.patch<ITask>(`${this.#url()}${id}`, { title }).pipe(
       shareReplay(),
-      tap((res) => this.#setTaskUpdate.set(res))
+      catchError((error:HttpErrorResponse)=> {
+        this.#setIdError.set(error.error.message);
+        return throwError(()=> error);
+      })
     );
   }
   #setTaskDelete = signal<ITask | null>(null);
@@ -70,7 +93,12 @@ export class ApiServiceService {
   public httpTaskDelete$(id:string): Observable<void>{
    return this.#http
    .delete<void>(`${this.#url()}${id}`, {})
-   .pipe(shareReplay());
+   .pipe(
+    shareReplay()
+    ,catchError((error:HttpErrorResponse)=> {
+    this.#setIdError.set(error.error.message);
+    return throwError(()=> error);
+  }));
   }
 
 

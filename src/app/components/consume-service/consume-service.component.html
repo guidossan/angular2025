@@ -11,15 +11,19 @@
   <li>Loading...</li>
 }
 <h3>Get Item Id</h3>
-@if(gatIdTask(); as data){
+@if(getIdTask(); as data){
   <p>Get por Id:
     {{ data.id }} - {{ data.title }}
   </p>
+}@else{
+  {{getIdError()}}
 }
 <h3>Post create</h3>
 <input type="text" #createTitle placeholder="Add Title"/>
 <button (click)="httpTaskCreate(createTitle.value)">Create</button>
-
+@if(getTaskCreateError()){
+  <p>{{getTaskCreateError()}}</p>
+}
 
 <h3>Patch update</h3>
 <input type="text" #updateId placeholder="Add Id"/>
