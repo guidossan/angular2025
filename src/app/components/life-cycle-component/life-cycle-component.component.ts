@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, DoCheck, Input, OnChanges, OnInit, signal, SimpleChanges, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, signal, SimpleChanges, AfterViewInit, ViewChild, ElementRef, AfterContentInit, ContentChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './life-cycle-component.component.html',
   styleUrl: './life-cycle-component.component.scss'
 })
-export class LifeCycleComponentComponent implements OnChanges, OnInit, DoCheck, AfterViewInit{
+export class LifeCycleComponentComponent implements OnChanges, OnInit, DoCheck, AfterViewInit, AfterContentInit{
 
   @Input() public number=0;
   public myText = signal('Gui');
@@ -18,12 +18,19 @@ export class LifeCycleComponentComponent implements OnChanges, OnInit, DoCheck, 
   constructor(
     private fb: FormBuilder
   ){}
-  
+
   @ViewChild('content') public content!: ElementRef;
+  //resgata os valores passados que vem no ng content
+  @ContentChild('text') public text!: ElementRef;
   //apos visualização e inicializado totalmente
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit');
     console.log(this.content.nativeElement.innerText);
+  }
+
+  ngAfterContentInit(): void {
+    console.log(this.text.nativeElement.innerText);
+    console.log('ngAfterContentInit');
   }
 
   ngOnInit(): void {
