@@ -11,6 +11,7 @@ import { AngularPipesComponent } from "./components/pipes/angular-pipes/angular-
 import { ReactiveFormsComponent } from './components/forms/reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from "./components/forms/template-driven-forms/template-driven-forms.component";
 import { ContentComponent } from "./components/content/content.component";
+import { HostElementsComponent } from "./components/host-elements/host-elements.component";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { ContentComponent } from "./components/content/content.component";
     CommonModule,
     RouterOutlet,
     ReactiveFormsComponent,
-    ContentComponent
+    ContentComponent,
+    HostElementsComponent
 ],
   template: `
     <router-outlet/>
@@ -35,17 +37,19 @@ import { ContentComponent } from "./components/content/content.component";
       <!--<app-angular-pipes/>-->
       <!--<app-template-driven-forms/>-->
       <!--<app-reactive-forms/>-->
-      <app-content>
-        <header id="header">
-          <p>Header</p>
-        </header>
-        <p text>Text</p>
-        <p text>Text</p>
-        <footer class="footer">
-          <p>Footer</p>
-        </footer>
-      </app-content>
-
+      <!--
+        <app-content>
+          <header id="header">
+            <p>Header</p>
+          </header>
+          <p text>Text</p>
+          <p text>Text</p>
+          <footer class="footer">
+            <p>Footer</p>
+          </footer>
+        </app-content>
+      -->
+      <app-host-elements/>
     </div>
 
   `,
