@@ -2,7 +2,7 @@
 @if(gatListTask(); as data){
   <ul>
     @for(item of data; track item){
-      <li>{{item.id}} - {{item.title}}</li>
+      <li>{{item.id}} - {{item.title}} - <button (click)="httpTaskDelete(item.id)">Delete</button></li>
     } @empty {
       <li>Não existe dados</li>
     }
