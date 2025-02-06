@@ -10,6 +10,7 @@ import { SignalsComponent } from './components/signals/signals.component';
 import { AngularPipesComponent } from "./components/pipes/angular-pipes/angular-pipes.component";
 import { ReactiveFormsComponent } from './components/forms/reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from "./components/forms/template-driven-forms/template-driven-forms.component";
+import { ContentComponent } from "./components/content/content.component";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { TemplateDrivenFormsComponent } from "./components/forms/template-driven
   imports: [
     CommonModule,
     RouterOutlet,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    ContentComponent
 ],
   template: `
     <router-outlet/>
@@ -32,7 +34,17 @@ import { TemplateDrivenFormsComponent } from "./components/forms/template-driven
       <!--<app-signals/>-->
       <!--<app-angular-pipes/>-->
       <!--<app-template-driven-forms/>-->
-      <app-reactive-forms/>
+      <!--<app-reactive-forms/>-->
+      <app-content>
+        <header id="header">
+          <p>Header</p>
+        </header>
+        <p text>Text</p>
+        <p text>Text</p>
+        <footer class="footer">
+          <p>Footer</p>
+        </footer>
+      </app-content>
 
     </div>
 
