@@ -38,4 +38,17 @@ export class ApiServiceService {
       tap((res) => this.#setIdTask.set(res))
     );
   }
+
+  #setTaskCreate = signal<ITask | null>(null);
+  get getTaskCreatek(){
+    return this.#setTaskCreate.asReadonly();
+  }
+  public httpTaskCreate$(title:string): Observable<ITask>{
+    return this.#http.post<ITask>(this.#url(), { title }).pipe(
+      shareReplay(),
+      tap((res) => this.#setIdTask.set(res))
+    );
+  }
+
+
 }

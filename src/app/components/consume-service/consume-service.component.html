@@ -16,3 +16,6 @@
     {{ data.id }} - {{ data.title }}
   </p>
 }
+<h3>Post create</h3>
+<input type="text" #createTitle placeholder="Add Title"/>
+<button (click)="httpTaskCreate(createTitle.value)">Create</button>
