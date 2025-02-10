@@ -29,7 +29,7 @@ export class ApiServiceService {
     this.#setListTask.set(null)
     //faz a request
     return this.#http.get<ITask[]>(this.#url(),{ headers, params }).pipe(
-      shareReplay(),
+
       tap((res) => this.#setListTask.set(res))
     );
   }
@@ -48,7 +48,7 @@ export class ApiServiceService {
     this.#setIdError.set(null)
     //faz a request
     return this.#http.get<ITask>(`${this.#url()}${id}`).pipe(
-      shareReplay(),
+
       tap((res) => this.#setIdTask.set(res)),
       catchError((error:HttpErrorResponse)=> {
         this.#setIdError.set(error.error.message);
@@ -68,7 +68,7 @@ export class ApiServiceService {
   public httpTaskCreate$(title:string): Observable<ITask>{
     this.#setTaskCreateError.set(null)
     return this.#http.post<ITask>(this.#url(), { title }).pipe(
-      shareReplay(),
+
       catchError((error:HttpErrorResponse)=> {
         this.#setTaskCreateError.set(error.error.message);
         return throwError(()=> error);
@@ -82,7 +82,7 @@ export class ApiServiceService {
   }
   public httpTaskUpdate$(id:string,title:string): Observable<ITask>{
     return this.#http.patch<ITask>(`${this.#url()}${id}`, { title }).pipe(
-      shareReplay(),
+
       catchError((error:HttpErrorResponse)=> {
         this.#setIdError.set(error.error.message);
         return throwError(()=> error);
@@ -97,8 +97,8 @@ export class ApiServiceService {
    return this.#http
    .delete<void>(`${this.#url()}${id}`, {})
    .pipe(
-    shareReplay()
-    ,catchError((error:HttpErrorResponse)=> {
+
+    catchError((error:HttpErrorResponse)=> {
     this.#setIdError.set(error.error.message);
     return throwError(()=> error);
   }));
