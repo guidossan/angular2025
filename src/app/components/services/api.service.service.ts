@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, signal, inject } from '@angular/core';
 import { environment } from 'environments/environment';
 import { catchError, Observable, shareReplay, tap, throwError } from 'rxjs';
@@ -22,10 +22,13 @@ export class ApiServiceService {
     return this.#setListTask.asReadonly();
   }
   public httpListTasks$(): Observable<Array<ITask>>{
+    //header na requisição
+    const headers = new HttpHeaders().set('x-vida-ful-stack','dev');
+    const params = new HttpParams().set('page','1');
     //restaura todos para null
     this.#setListTask.set(null)
     //faz a request
-    return this.#http.get<ITask[]>(this.#url()).pipe(
+    return this.#http.get<ITask[]>(this.#url(),{ headers, params }).pipe(
       shareReplay(),
       tap((res) => this.#setListTask.set(res))
     );
