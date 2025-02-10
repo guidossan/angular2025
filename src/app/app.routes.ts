@@ -3,11 +3,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { ServicosPrestadosComponent } from './pages/servicos-prestados/servicos-prestados.component';
 import { input } from '@angular/core';
+import { canActivateChildGuard } from './guard/can-activate-child.guard';
 
 export const routes: Routes = [
   {
     path:'',
     loadChildren: ()=> import('./pages/curso.routes').then((r)=> r.cursoRoutes),
+      canActivate: [canActivateChildGuard],
   },
   //da para usar quando for fazer página de admin
   {
