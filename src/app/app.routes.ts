@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { ServicosPrestadosComponent } from './pages/servicos-prestados/servicos-prestados.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -11,17 +10,20 @@ export const routes: Routes = [
       {
         path:'',
         title: 'Home da página',
-        component:HomeComponent,
+        component: HomeComponent,
       },
+      //carregar o componente somente quando for para ir para ele
       {
         path:'sobre',
         title: 'Sobre',
-        component:SobreComponent,
+        loadComponent: () =>
+           import('./pages/sobre/sobre.component').then((p) => p.SobreComponent),
       },
       {
         path:'servicos/:id',
         title: 'Serviços',
-        component:ServicosPrestadosComponent,
+        loadComponent: () =>
+          import('./pages/servicos-prestados/servicos-prestados.component').then((p) => p.ServicosPrestadosComponent),
       },
     ]
   },
@@ -37,17 +39,20 @@ export const routes: Routes = [
       {
         path:'sobre',
         title: 'Sobre',
-        component:SobreComponent,
+        loadComponent: () =>
+           import('./pages/sobre/sobre.component').then((p) => p.SobreComponent),
       },
       {
         path:'servicos/:id',
         title: 'Serviços',
-        component:ServicosPrestadosComponent,
+        loadComponent: () =>
+          import('./pages/servicos-prestados/servicos-prestados.component').then((p) => p.ServicosPrestadosComponent),
       },
     ]
   },
   {
     path:'**',
-    component:NotFoundComponent,
+    loadComponent: () =>
+      import('./pages/not-found/not-found.component'),
   }
 ];
