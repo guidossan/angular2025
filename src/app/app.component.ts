@@ -32,8 +32,8 @@ import { ConsumeServiceComponent } from "./components/consume-service/consume-se
     ConsumeServiceComponent
 ],
   template: `
-    <router-outlet/>
-    <h1>Hello</h1>
+    <!--<router-outlet/>-->
+    <!--<h1>Hello</h1>-->
     <div class="theme-dark">
 
       <!--<app-new-component />-->
@@ -68,7 +68,8 @@ import { ConsumeServiceComponent } from "./components/consume-service/consume-se
       <button (click)="boolean = !boolean">Destroy</button>
     </div>
     -->
-    <app-consume-service/>
+    <!--<app-consume-service/>-->
+    <router-outlet></router-outlet>
 
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
