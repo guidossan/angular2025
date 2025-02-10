@@ -16,6 +16,7 @@ import { LifeCycleComponentComponent } from "@components/life-cycle-component/li
 
 import { environment } from 'environments/environment';
 import { ConsumeServiceComponent } from "./components/consume-service/consume-service.component";
+import { TranslateComponent } from '@components/translate/translate.component';
 
 
 
@@ -29,7 +30,8 @@ import { ConsumeServiceComponent } from "./components/consume-service/consume-se
     ContentComponent,
     HostElementsComponent,
     LifeCycleComponentComponent,
-    ConsumeServiceComponent
+    ConsumeServiceComponent,
+    TranslateComponent
 ],
   template: `
     <!--<router-outlet/>-->
@@ -69,8 +71,9 @@ import { ConsumeServiceComponent } from "./components/consume-service/consume-se
     </div>
     -->
     <!--<app-consume-service/>-->
-    <router-outlet></router-outlet>
-
+    <!--<router-outlet></router-outlet>-->
+    <h2>Translate</h2>
+    <app-translate/>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

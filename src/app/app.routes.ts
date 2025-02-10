@@ -4,12 +4,14 @@ import { SobreComponent } from './pages/sobre/sobre.component';
 import { ServicosPrestadosComponent } from './pages/servicos-prestados/servicos-prestados.component';
 import { input } from '@angular/core';
 import { canActivateChildGuard } from './guard/can-activate-child.guard';
+import { canMatchGuard } from './guard/can-match.guard';
 
 export const routes: Routes = [
   {
     path:'',
     loadChildren: ()=> import('./pages/curso.routes').then((r)=> r.cursoRoutes),
       canActivate: [canActivateChildGuard],
+    canMatch:[canMatchGuard],
   },
   //da para usar quando for fazer página de admin
   {
