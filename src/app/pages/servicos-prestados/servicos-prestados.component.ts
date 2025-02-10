@@ -12,6 +12,8 @@ export class ServicosPrestadosComponent implements OnInit{
   #route = inject(ActivatedRoute);
   ngOnInit(): void {
     console.log(this.#route.snapshot.params['id']);
-  
+    console.log(this.#route.snapshot.queryParamMap.get('name'));
+    console.log(this.#route.snapshot.queryParamMap.get('age'));
+
   }
 }
