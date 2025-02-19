@@ -1,6 +1,20 @@
 <h2>Animações</h2>
-<div class="ball" [@move-ball]="moveIn()">
+@if(moveIn() === 'move-right'){
 
-</div>
+  <div class="ball" [@move-ball]="moveIn()"></div>
+}
+
 <button (click)="moveIn.set('move-left')">Move left</button>
 <button (click)="moveIn.set('move-right')">Move rigth</button>
+
+
+{{moveIn()}}
+<hr/>
+<ul [@list-items]="moveIn()">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+  <li>Item 4</li>
+  <li>Item 5</li>
+</ul>
+
