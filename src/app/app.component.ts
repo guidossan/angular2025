@@ -19,6 +19,7 @@ import { ConsumeServiceComponent } from "./components/consume-service/consume-se
 import { TranslateComponent } from '@components/translate/translate.component';
 import { environment } from 'environments/environment';
 import { OptImageComponent } from "./components/opt-image/opt-image.component";
+import { AnimationsComponent } from "./components/animations/animations.component";
 
 
 
@@ -34,7 +35,8 @@ import { OptImageComponent } from "./components/opt-image/opt-image.component";
     LifeCycleComponentComponent,
     ConsumeServiceComponent,
     TranslateComponent,
-    OptImageComponent
+    OptImageComponent,
+    AnimationsComponent
 ],
   template: `
     <!--<router-outlet/>-->
@@ -79,7 +81,8 @@ import { OptImageComponent } from "./components/opt-image/opt-image.component";
       <h2>Translate</h2>
       <app-translate/>
     -->
-    <app-opt-image/>
+    <!--<app-opt-image/>-->
+    <app-animations/>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
