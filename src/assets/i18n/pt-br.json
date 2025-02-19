@@ -2,8 +2,10 @@
   "pages": {
     "translate": {
       "text": {
-        "language": "pt-br"
+        "language": "pt-br",
+        "title": "Traduza"
       }
+
     }
   }
 }

@@ -14,9 +14,10 @@ import { ContentComponent } from "@components/content/content.component";
 import { HostElementsComponent } from "@components/host-elements/host-elements.component";
 import { LifeCycleComponentComponent } from "@components/life-cycle-component/life-cycle-component.component";
 
-import { environment } from 'environments/environment';
+
 import { ConsumeServiceComponent } from "./components/consume-service/consume-service.component";
 import { TranslateComponent } from '@components/translate/translate.component';
+import { environment } from 'environments/environment';
 
 
 

@@ -2,7 +2,8 @@
   "pages": {
     "translate": {
       "text": {
-        "language": "en"
+        "language": "en",
+        "title": "Translate"
       }
     }
   }
