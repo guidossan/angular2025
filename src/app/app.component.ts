@@ -18,6 +18,7 @@ import { LifeCycleComponentComponent } from "@components/life-cycle-component/li
 import { ConsumeServiceComponent } from "./components/consume-service/consume-service.component";
 import { TranslateComponent } from '@components/translate/translate.component';
 import { environment } from 'environments/environment';
+import { OptImageComponent } from "./components/opt-image/opt-image.component";
 
 
 
@@ -32,7 +33,8 @@ import { environment } from 'environments/environment';
     HostElementsComponent,
     LifeCycleComponentComponent,
     ConsumeServiceComponent,
-    TranslateComponent
+    TranslateComponent,
+    OptImageComponent
 ],
   template: `
     <!--<router-outlet/>-->
@@ -73,8 +75,11 @@ import { environment } from 'environments/environment';
     -->
     <!--<app-consume-service/>-->
     <!--<router-outlet></router-outlet>-->
-    <h2>Translate</h2>
-    <app-translate/>
+    <!--
+      <h2>Translate</h2>
+      <app-translate/>
+    -->
+    <app-opt-image/>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
